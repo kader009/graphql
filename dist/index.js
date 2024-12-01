@@ -22,8 +22,8 @@ const typeDefs = `#graphql
 const resolvers = {
     Query: {
         product: () => db.products,
-        products: (parent, args, context) => {
-            console.log(parent, args, context);
+        products: (args) => {
+            console.log(args);
         },
     },
 };
