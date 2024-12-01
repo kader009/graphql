@@ -25,7 +25,8 @@ const resolvers = {
   Query: {
     product: () => db.products,
     products: (args: { productId: string }) => {
-      console.log(args);
+      const SingleId = db.products.find((pd) => pd.id === args.productId);
+      return SingleId;
     },
   },
 };

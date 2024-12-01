@@ -23,7 +23,8 @@ const resolvers = {
     Query: {
         product: () => db.products,
         products: (args) => {
-            console.log(args);
+            const SingleId = db.products.find((pd) => pd.id === args.productId);
+            return SingleId;
         },
     },
 };
