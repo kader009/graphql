@@ -1,9 +1,10 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
+import { db } from './db.js';
 
 const typeDefs = `#graphql
 
-  type Products{
+  type Products{ 
     id: ID!
     name: String
     image: String
@@ -13,10 +14,20 @@ const typeDefs = `#graphql
     onStock: Boolean,
     category: String
   }
+
+  type Query{
+  product:[Products]
+  products(productId: ID!): Products
+  }
 `;
 
 const resolvers = {
-  Query: {},
+  Query: {
+    product: () => db.products,
+    products: (parent, args, context) => {
+      console.log(parent, args, context);
+    },
+  },
 };
 
 const server = new ApolloServer({
