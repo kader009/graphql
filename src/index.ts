@@ -1,17 +1,7 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
-import { db } from './db.js';
 import { typeDefs } from './gql/types/schema.js';
-
-const resolvers = {
-  Query: {
-    product: () => db.products,
-    products: (parent: any, args: { productId: string }, context: any) => {
-      const SingleId = db.products.find((pd) => pd.id === args.productId);
-      return SingleId;
-    },
-  },
-};
+import { resolvers } from './gql/resolvers/resolver.js';
 
 const server = new ApolloServer({
   typeDefs,
