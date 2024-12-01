@@ -7,5 +7,12 @@ export const resolvers = {
       const SingleId = db.products.find((pd) => pd.id === args.productId);
       return SingleId;
     },
+    categories: () => db.categories,
+    category: (parent: any, args: { categoryId: string }, context: any) => {
+      const singleCategory = db.categories.find(
+        (cat) => cat.id === args.categoryId
+      );
+      return singleCategory;
+    },
   },
 };
