@@ -17,6 +17,14 @@ export const typeDefs = `#graphql
   product:[Products]
   }
 
+  type Review{
+  id:ID!
+  review:String
+  rating:Int
+  date:String
+  productId:String
+  }
+
   type Query{
   product:[Products]
   products(productId: ID!): Products
