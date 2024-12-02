@@ -12,4 +12,9 @@ export const resolvers = {
             return singleCategory;
         },
     },
+    Product: {
+        category: (parent, args, context) => {
+            console.log(parent, args, context);
+        },
+    },
 };

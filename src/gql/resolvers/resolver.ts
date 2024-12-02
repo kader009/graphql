@@ -15,4 +15,10 @@ export const resolvers = {
       return singleCategory;
     },
   },
+
+  Product: {
+    category: (parent: any, args, context: any) => {
+      console.log(parent, args, context);
+    },
+  },
 };
