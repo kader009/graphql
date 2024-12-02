@@ -15,15 +15,13 @@ export const resolvers = {
     Products: {
         category: (parent, args, context) => {
             // console.log(parent.categoryId);
-            const result = db.categories.find((category) => category.id === parent.categoryId);
-            return result;
+            return db.categories.find((category) => category.id === parent.categoryId);
         },
     },
     Category: {
         product: (parent, args, context) => {
             // console.log(parent, args, context);
-            const result = db.products.filter(pro => pro.categoryId === parent.id);
-            return result;
+            return db.products.filter((pro) => pro.categoryId === parent.id);
         },
     },
 };
