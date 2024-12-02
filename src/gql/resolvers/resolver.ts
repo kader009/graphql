@@ -17,18 +17,18 @@ export const resolvers = {
   },
 
   Products: {
-    category: (parent, args, context: any) => {
-      // console.log(parent.categoryId);
-      return db.categories.find(
-        (category) => category.id === parent.categoryId
-      );
+    category: ({ categoryId }, args:any, context: any) => {
+      return db.categories.find((category) => category.id === categoryId);
+    },
+
+    reviews: ({ id }, args:any, context:any) => {
+      return db.reviews.filter((review) => review.productId === id);
     },
   },
 
   Category: {
-    product: (parent, args, context) => {
-      // console.log(parent, args, context);
-      return db.products.filter((pro) => pro.categoryId === parent.id);
+    product: ({ id }, args:any, context:any) => {
+      return db.products.filter((pro) => pro.categoryId === id);
     },
   },
 };
