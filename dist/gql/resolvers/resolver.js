@@ -12,9 +12,11 @@ export const resolvers = {
             return singleCategory;
         },
     },
-    Product: {
+    Products: {
         category: (parent, args, context) => {
-            console.log(parent, args, context);
+            // console.log(parent.categoryId);
+            const result = db.categories.find((category) => category.id === parent.categoryId);
+            return result;
         },
     },
 };
