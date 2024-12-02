@@ -1,4 +1,4 @@
-export const typeDefs = `#graphql 
+export const typeDefs = `#graphql
 
   type Products{ 
     id: ID!
@@ -8,7 +8,7 @@ export const typeDefs = `#graphql
     price: Float
     quantity: Int,
     onStock: Boolean,
-    category: String
+    category: Category
   }
 
   type Category{
